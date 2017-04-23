@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>lazyload</title>
+    <style>
+        img {
+            display: block;
+            margin-bottom: 20px;
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="lazyload">
+        <img src="img/default.png" data-src="img/1.jpg">
+        <img src="img/default.png" data-src="img/2.jpg">
+        <img src="img/default.png" data-src="img/3.jpg">
+        <img src="img/default.png" data-src="img/4.jpg">
+        <img src="img/default.png" data-src="img/5.jpg">
+        <img src="img/default.png" data-src="img/1.jpg">
+        <img src="img/default.png" data-src="img/2.jpg">
+        <img src="img/default.png" data-src="img/3.jpg">
+        <img src="img/default.png" data-src="img/4.jpg">
+        <img src="img/default.png" data-src="img/5.jpg">
+        <img src="img/default.png" data-src="img/0.jpg">
+    </div>
+
+    <script src="../lib/jquery-1.12.4.min.js"></script>
+    <script src="lazyload.js"></script>
+</body>
+</html>
