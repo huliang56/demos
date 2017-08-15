@@ -1,0 +1,65 @@
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.m-topbar-max {
+    right: 0;
+}
+.hid{
+    display: none;
+}
+.wrap{
+    max-width: 100%;
+    height: 100%;
+    position: relative;
+}
+.wrap img{
+    max-width: 100%;
+}
+.wrap canvas{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+.wrap.loading::after{
+    content: 'loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #777;
+    transform: translate(-50%,-50%);
+    font-size: 0.75rem;
+}
+.log{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 999;
+    background: #000;
+    color: #fff;
+}
+.errors{
+    padding: 4rem 0.625rem;
+}
+
+
+
+
+.empty_failed {
+    height: 100%;
+}
+svg {
+    display: block;
+    width: 5rem;
+    height:5rem;
+    margin: 5rem auto 1rem;
+}
+
+p {
+    text-align: center;
+    color: #919191;
+}
