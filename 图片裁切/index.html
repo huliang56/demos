@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+  <meta charset="UTF-8">
+  <title>图片裁切</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="crop-container">
+      <div class="image-box">
+        <div class="image-view-box"></div>
+      </div>
+      <div class="control-panel">
+        <input type="file" id="uploadFileBtn">
+        <div class="control-btns">
+          <button type="button" id="zoomOutBtn">缩小</button>
+          <button type="button" id="zoomInBtn">放大</button>
+          <button type="button" id="cropBtn">裁切</button>
+        </div>
+      </div>
+    </div>
+    <div class="cropped-container">
+      <h3>裁切后：</h3>
+    </div>
+  </div>
+  <script src="cropbox/cropbox.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

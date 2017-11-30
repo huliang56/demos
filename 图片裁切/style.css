@@ -1,0 +1,38 @@
+
+.container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.crop-container{}
+.image-box {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  cursor: move;
+}
+.image-view-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 1px solid #666;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  background: none repeat scroll 0% 0% transparent;
+}
+
+.control-panel{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.cropped-container {
+  margin-left: 10px;
+}
+.cropped-container img{
+  margin: 10px;
+}
