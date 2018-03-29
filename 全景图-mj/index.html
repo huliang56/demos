@@ -1,0 +1,1986 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title id="title">米家全景相机</title>
+<meta charset="utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+  content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent">
+<style type="text/css">
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+  -ms-touch-action: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+:fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  background: dark;
+  width: 100%;
+  height: 100%;
+}
+
+.hot-area .hot-text {
+  display: inline-block;
+}
+
+.hot-area .hot-num {
+  display: inline-block;
+}
+
+.top-area {
+  height: 40px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 5px 20px 0px 20px;
+  position: fixed;
+  font-size: 12px;
+  opacity: 0.9;
+  font-weight: normal;
+  color: #ffffff;
+  display: block;
+  z-index: 1;
+  background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0)));
+}
+
+.top-area-left {
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 0
+}
+
+.top-area-right {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  float: right;
+}
+
+.top-area-right-img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  margin-top: 10px;
+  float: right;
+}
+
+.comment-edit-area {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  padding: 10px 20px;
+  background-color: #fff;
+  z-index: 5;
+  display: none;
+}
+
+.comment-edit-area-input-area {
+  height: 24px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.comment-edit-area-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  height: 24px;
+  width: 100%;
+  display: inline-block;
+  z-index: 2;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.comment-edit-area-delete {
+  width: 15px;
+  height: 24px;
+  position: absolute;
+  right: 12px;
+  top: 4px;
+}
+
+.comment-area {
+  position: absolute;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.test-comment-area {
+  position: absolute;
+  left: 100;
+  top: 500;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  white-space:;
+  text-overflow: ellipsis;
+  z-index: 4;
+}
+
+.test-comment-area .comment-area-img {
+  width: 36px;
+  height: 36px;
+}
+
+.test-comment-area .comment-area-text {
+  height: 36px;
+  font-size: 4px;
+  line-height: 10px;
+  white-space: normal;
+  width: 100px;
+  line-height: 15px;
+}
+
+.edit {
+  height: 36px;
+  padding: 5px;
+  background-color: #46a4ea;
+  overflow: display;
+  display: none;
+}
+
+.edit-text {
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0.6;
+  display: inline-block;
+  vertical-align: top;
+  text-overflow: clips;
+  overflow: hidden;
+  margin: 0 0 0 0px;
+  height: 26px;
+  font-size: 10px;
+  white-space: normal;
+  width: 100px;
+  line-height: 12px;
+}
+
+.comment-area-tip {
+  position: absolute;
+  bottom: -68px;
+  left: 20px;
+  z-index: 3;
+  display: none;
+}
+
+.comment-area-tip1 {
+  margin-left: 13px;
+  z-index: 1;
+}
+
+.comment-area-img {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: inline-block;
+  white-space:;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.comment-area-text {
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0.6;
+  display: inline-block;
+  line-height: 20px;
+  vertical-align: top;
+  height: 20px;
+  white-space:;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 0 0 5px;
+  max-width: 300px;
+}
+
+.comment-button-hover {
+  background-color: #46a4ea;
+  border-color: #46a4ea;
+}
+
+.comment-hide-button {
+  background-image: url("./image/keine-16*16.png");
+  background-position: top left;
+  background-size: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #888;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.comment-refresh-button {
+  background-image: url("./image/exchange-16*16.png");
+  background-position: top left;
+  background-size: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #888;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.comment-submit-button {
+  display: inline-block;
+  float: right;
+  border: 1px solid #ccc;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  height: 24px;
+  margin-top: 3px;
+  width: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  overflow: hidden;
+  line-height: 24px;
+}
+
+.comment-cancel-button {
+  display: inline-block;
+  float: right;
+  border: 1px solid #ccc;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  height: 24px;
+  margin-top: 3px;
+  width: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  overflow: hidden;
+  border-left: none;
+  margin-right: -1px;
+  line-height: 24px;
+}
+
+input:input-placeholder {
+  color: #ffffff;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+  　　 color: #ffffff;
+  　　
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  　　 color: #ffffff;
+  　
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  　　 color: #ffffff;
+  　　
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  　　 color: #ffffff;
+  　　
+}
+
+.praise-area {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  padding: 10px 20px;
+  z-index: 3;
+  display: block;
+  overflow: visible;
+}
+
+.praise-button-area{
+  height: 30px;
+  margin: 0px -20px;
+  padding: 5px 20px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.3)));
+}
+
+.praise-button {
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  width: 20px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.praise-button-unselect {
+  background-image: url("./image/like.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.praise-button-select {
+  background-image: url("./image/like-click.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.praise-comment-button {
+  background-image: url("./image/edit.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.praise-scene-button {
+  background-image: url("./image/scene.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  float: right;
+}
+
+.praise-buy-button {
+  margin: 0 auto;
+  width: 16px;
+  display: block;
+  margin-top: -26px;
+  height: 16px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.open-buy-area {
+  background-image: url(./image/open_buy_area.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.close-buy-area {
+  background-image: url(./image/close_buy_area.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.download-area {
+  width: 100%;
+  height: 50px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 5px 0;
+  position: fixed;
+  font-size: 20px;
+  background-color: #000000;
+  opacity: 0.9;
+  font-weight: normal;
+  z-index: 1;
+}
+
+.download-area-button {
+  margin: 10px 10px 5px 0px;
+  line-height: 30px;
+  background-color: #46a4ea;
+  color: #ffffff;
+  text-decortion: none;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 14px;
+  width: 80px;
+  height: 30px;
+  display: block;
+  float: right;
+  text-align: center;
+}
+
+.download-close-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 10px;
+  padding-top: 18px;
+  padding-left: 5px;
+}
+
+.download-area-desc-area {
+  height: 40px;
+  width: auto;
+  margin: 5px 0;
+  padding: 0;
+  opacity: 1.0;
+  text-align: left;
+  z-index: 96;
+  vertical-align: middle;
+}
+
+.padding6 {
+  padding-left: 6px;
+}
+
+.padding20 {
+  padding-left: 20px;
+}
+
+.download-area-desc-pic {
+  float: left;
+  margin: -2px 10px;
+  padding: 0px;
+  opacity: 1;
+  display: inline-block;
+}
+
+.download-area-desc-text {
+  float: left;
+  height: 40px;
+  margin: 0px 0px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #ffffff;
+  opacity: 1;
+  line-height: 40px;
+}
+
+.download-area-desc-text1 {
+  float: left;
+  height: 40px;
+  margin: 0px 0px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.margin5 {
+  margin: 5px 0;
+}
+
+.download-area-desc-text .p1 {
+  font-size: 14px;
+  display: block;
+}
+
+.download-area-desc-text1 .p2 {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+}
+
+.download-area-desc-text1 .p3 {
+  font-size: 8px;
+  line-height: 20px;
+  display: block;
+}
+
+.buy-area {
+  height: 50px;
+  margin: 0px -20px;
+  padding: 5px 0;
+  font-size: 20px;
+  background-color: #000000;
+  opacity: 0.9;
+  z-index: 1;
+  font-weight: normal;
+  display: block;
+}
+
+.buy-hide-button {
+  width: 20px;
+  height: 20px;
+  margin-top: -24px;
+  float: right;
+}
+
+.buy-area-button {
+  margin: 10px 10px 5px 0px;
+  line-height: 30px;
+  background-color: #46a4ea;
+  color: #ffffff;
+  text-decortion: none;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 14px;
+  width: 80px;
+  height: 30px;
+  display: block;
+  float: right;
+  text-align: center;
+}
+
+.control-area {
+  padding: 25px 20px 0px 20px;
+  font-size: 14px;
+  background-color: #000000;
+  color: #fff;
+  opacity: 0.8;
+  z-index: 2;
+  font-weight: normal;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.control-more-button {
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.control-area-close-button {
+  background-image: url("./image/delete-more.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  width: 16px;
+  height: 16px;
+  margin: 9px 0px;
+}
+
+.control-vr-button {
+  background-image: url("./image/vr.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.control-gyro-button {
+  background-image: url("./image/gyro.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.control-screenshot-button {
+  background-image: url("./image/details.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 24px;
+  height: 16px;
+  margin: 9px 0px;
+  margin-right: 10px;
+}
+
+.switch-span {
+  float: right;
+  margin: 5px 0px;
+  height: 24px;
+  widht: 50px;
+}
+
+.hand-area {
+  width: 100px;
+  height: 110px;
+  z-index: 3;
+  display: none;
+  position: absolute;
+  background-image: url(./image/hand.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.qrcode-area{
+  width: 200px;
+  height: 280px;
+  z-index: 3;
+  display: none;
+  position: absolute
+}
+
+.qrcode-close-area{
+  width: 30px;
+  height: 40px;
+  z-index: 3;
+  display: block;
+  margin-top:-38px;
+  float:right;
+  background-image: url(./image/delete-h.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.detailinfo {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #000;
+  opacity: 0.8;
+  display: none;
+  z-index: 5;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.detail-title-area {
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  height: 40px;
+}
+
+.detail-time-txt, .detail-time {
+  font-size: 12px;
+  height: 20px;
+}
+
+.detail-close-button {
+  background-image: url(./image/delete-more.png);
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  width: 16px;
+  height: 16px;
+  margin: 9px 0px;
+  float: right;
+}
+
+.detail-content {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #fff;
+  overflow: hidden;
+}
+</style>
+<!--引入引导js 动态下载播放器-->
+<link type="text/css" rel="stylesheet"
+  href="./css/ui.switchbutton.min.css" />
+<script language="javascript" type="text/javascript"
+  src="./player/UtoVRPlayerGuide.js"></script>
+<script language="javascript" type="text/javascript"
+  src="./js/jquery-1.11.2.min.js"></script>
+<script language="javascript" type="text/javascript"
+  src="./js/jquery.tmpl.min.js"></script>
+<script language="javascript" type="text/javascript"
+  src="./js/jquery-migrate.js"></script>
+<script language="javascript" type="text/javascript"
+  src="./js/jquery-ui-1.9.2.custom.min.js"></script>
+<script language="javascript" type="text/javascript"
+  src="./js/jquery-patch.js"></script>
+<script type="text/javascript" src="./js/jquery.switchbutton.js"></script>
+<script type="text/javascript" src="./js/hammer.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+</head>
+<body>
+  <!-- hand area -->
+  <div class="hand-area"></div>
+  <!-- qrcode area -->
+  <div class="qrcode-area">
+    <div class="qrcode-close-area">
+    </div>
+    <img alt="" src="./image/ma.png" width="200px" height="280px">
+  </div>
+  <!-- top area -->
+  <div class="top-area">
+    <div class="top-area-left" style="">
+      <span class="hot-text">作者：</span> <span id="author">奔跑吧</span>
+      &nbsp;&nbsp; <span class="hot-text">人气：</span> <span id="hot"
+        class="hot-num"></span>
+    </div>
+    <div class="top-area-right" style="">
+      <div class="top-area-right-img control-area-show-button" style="">
+        <img alt="" src="./image/more.png" width="20px" height="20px">
+      </div>
+      <div class="top-area-right-img h5-pattern-button" style="">
+        <img alt="" src="./image/xing.png" width="20px" height="20px">
+      </div>
+    </div>
+  </div>
+
+  <!-- detail info -->
+  <div class="detailinfo">
+    <div class="detail-title-area">
+      <span class="detail-title" style="padding: 0;"></span> <span
+        class="detail-close-button" style="float: right"></span> <br /> <span
+        class="detail-time-txt">时间：</span> <span class="detail-time">05/05</span>
+
+    </div>
+    <div class="detail-content">
+    </div>
+  </div>
+
+  <!-- 评论内容浮动层 -->
+  <div class="comment-edit-area">
+    <div class="comment-edit-area-input-area" style="">
+      <input type="text" id="comment-edit-area-input"
+        class="comment-edit-area-input" style="" size="20" maxlength="30"
+        placeholder="微信授权米家全景应用后便可发表评论" />
+      <div class="comment-edit-area-delete" style="">
+        <img src="./image/delete.png" width="16px" height="16px" />
+      </div>
+    </div>
+    <div style="height: 30px;">
+      <span class="comment-hide-button" style=""> 隐藏</span> <span
+        class="comment-refresh-button" style=""> 换一换</span>
+      <div class="comment-button comment-submit-button" style="">发布</div>
+      <div class="comment-button comment-cancel-button" style="">取消</div>
+    </div>
+  </div>
+
+  <!-- 点赞评论banner -->
+  <div class="praise-area">
+    <div class="praise-button-area" style="">
+      <span class="praise-button praise-button-unselect " style=""> 0</span>
+      <span class="praise-comment-button" style=""> 评论</span> <span
+        class="praise-scene-button" style="display: none;"> 场景</span> <span
+        id="buy-area-control-button"
+        class=" praise-buy-button open-buy-area" style=""></span>
+    </div>
+
+    <!-- 购买app浮动层 -->
+    <div class="buy-area">
+      <div class="buy-area-button" id="openApp">我也要拍</div>
+      <div class="download-area-desc-area padding6">
+        <div class="download-area-desc-pic">
+          <img src="./image/photo.png" width="44" height="44">
+        </div>
+        <div class="download-area-desc-text1">
+          <span class="p2">米家全景相机</span> <span class="p3">点滴瞬间 不止一面</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 更多控制banner -->
+  <div class="control-area">
+    <div style="border-bottom: 1px solid #222;">
+      <span class="control-more-button" style="padding: 0;"> 更多</span> <span
+        class="control-area-close-button" style="float: right"></span>
+    </div>
+    <div style="border-bottom: 1px solid #222;">
+      <span class="control-vr-button" style=""> VR模式</span> <span
+        class="switch-span" style=""> <input type="checkbox" id="switch_vr" />
+      </span>
+    </div>
+    <div style="border-bottom: 1px solid #222;">
+      <span class="control-gyro-button" style=""> 手机陀螺仪</span> <span
+        class="switch-span" style=""> <input type="checkbox"
+        id="switch_gyro" />
+      </span>
+    </div>
+    <div>
+      <span class="control-screenshot-button praise-screenshot-button"
+        style=""> 内容信息</span>
+    </div>
+    </dl>
+  </div>
+
+  <div id="draggable" draggable=true pan="0" tilt="0" fov="85">
+    <div class="test-comment-area edit">
+      <div class="comment-area-img">
+        <img src="./image/logo.png" width="40px" height="40px" />
+      </div>
+      <span class="edit-text">随便说点儿吧！（广告及恶意留言将被删除）</span>
+    </div>
+    <div class="comment-area-tip">
+      <img src="./image/wei1.png" width="6px" height="24px" />
+    </div>
+  </div>
+
+  <script language="javascript" type="text/javascript">
+  //初始化获取评论列表信息
+  var commentnums=1, commentoffset=0, commentlimit=10;
+  //获取评论列表的标记
+  var getcommentsign = false;
+  //测试环境url
+  //var apiurl  = "http://tapi.madv360.com:9999";
+  //var codeurl = "index_getwxcode_test.php";
+  //生产环境url
+  var apiurl  = "http://capi.madv360.com:9999";
+  var codeurl = "index_getwxcode.php";
+
+  // function getCommentList(filename, offset, limit){
+
+  //   var url = apiurl+"?cmd=getwxcomment";
+
+  //   if(commentnums <= commentoffset) {
+  //     alert("没有评论了");
+  //     return;
+  //   }
+
+  //   //获取
+  //     $.ajax({
+  //             data:"filename="+filename+"&offset="+offset+"&limit="+limit,
+  //             type : "get",
+  //             async : false,
+  //             url: url,
+  //             dataType : "json",
+  //             success : function(json) {
+  //               if(json.rval == 0 && json.totalnum > 0){
+  //                 $(".comment-area").remove();
+
+  //                 getcommentsign = true;
+  //                 commentnums = json.totalnum;
+  //                 commentoffset += json.curnum;
+
+  //                 for(var b in json.result.commentlist){
+  //                   addComment(json.result.commentlist[b]);
+  //                 }
+  //               }else{
+  //                 if(getcommentsign){
+  //                   alert("没有评论了");
+  //               }
+  //             }
+  //             },
+  //             error : function(e) {
+  //               //alert("fail");
+  //             }
+  //     });
+  // }
+
+  function addComment(data){
+    var xy = playerObj.api_sphereToScreen(data.pan, data.tilt);
+    var x  = xy.x - 170;
+    var y  = xy.y - 63;
+
+    //alert("保存后left:"+x);
+    //alert("保存后top:"+y);
+
+    var html = '';
+    html += '<div class="comment-area" pan="'+data.pan+'" tilt="'+data.tilt+'" fov="'+data.fov+'" style="position:absolute;left:'+x+'px;top:'+y+'px;" >';
+    html += '<div>';
+    html += '<div style="border-radius:5px;widht:30px;height:30px;overflow:hidden;display:inline-block;"><img src="'+data.headimgurl+'" width="30px" height="30px" />';
+    html += '</div>';
+    html += '<span class="comment-area-text" >'+data.content+'</span>';
+    html += '<div class="comment-area-tip1"> <img src="./image/wei1.png" width="4px" height="12px" /> </div>';
+    html += '</div>';
+    html += '</div>';
+
+    $(html).appendTo("body");
+  }
+
+  function judgebrowser(){
+
+    var ua = navigator.userAgent.toLowerCase();
+
+      //设置在微信浏览器内打开评论、点赞
+      if(ua.match(/MicroMessenger/i) != "micromessenger"){
+  //         alert(ua);
+  //         alert(ua.match(/MicroMessenger/i));
+        alert("请使用微信访问");
+        return false;
+
+      }else{
+        return true;
+      }
+  }
+  //是否是iphone标记
+  var isIPHONE = navigator.userAgent.toUpperCase().indexOf('IPHONE')!= -1;
+
+  //判断当前是否为评论状态
+  var comment_sign = false;
+  //显示隐藏评论标记
+  var comment_display_sign = true;
+  //显示隐藏上下banner标记
+  var displaystate = true;
+  //cookie点赞标记
+  var praise_sign = false;
+  //页面点赞标记
+  var praise_page_sign = false;
+  //判断当前的显示形式1，小行星 2，球面 3，平面
+  var display_pattern = 1;
+  //判读是否获取到code
+  var codesign  = 0;
+  //初始化视角变化标记
+  var initsign = true;
+
+  var filename = getQueryString('filename') || "" ;
+  var iscode = getQueryString('iscode') || "" ;
+  var from = getQueryString('from') || "" ;
+  var isappinstalled = getQueryString('isappinstalled') || "" ;
+  var cpan  = ""*1 || 0;
+  var ctilt = ""*1 || 0;
+  var cfov  = ""*1 || 85;
+
+  if(codesign){
+
+     openid = ""|| "";
+     nickname = ""|| "";
+     sex = ""|| "";
+       province = ""|| "";
+     city = ""|| "";
+     country = ""|| "";
+     headimgurl = ""|| "";
+     privilege = ""|| "";
+     unionid = ""|| "";
+
+    $(".comment-area-img", $(".test-comment-area")).children("img").prop("src", headimgurl);
+  }
+
+  var startx=0,starty=0,endx=0,endy=0;
+
+    /*播放器参数配置*/
+    var params = {
+        container: document.body,
+        name: "SceneViewer",
+        dragDirectionMode: true,
+        dragMode: false,
+        isGyro: false,
+        isDBClick: false,
+        scenesArr: [
+            {
+                sceneId: "v1",
+                sceneName: "赛车",
+                sceneFilePath: "./image/1024_512.jpg",
+                sceneType: "Image",
+                initFov: cfov == "" ? 85 : cfov,
+                minFov:45,
+                maxFov:150,
+                initPan: 0,
+                initTilt: 0,
+                cameraAt:0,    //初始默认球面视图
+            }
+        ],
+        errorCallBack: function (e) {
+            alert("错误信息：" + e);
+        },
+    initOverCallBack:function(){
+            playerObj = this;
+            $("#videoToolbar").hide();
+            $("div[name=SceneViewer]").css("height", $(document).height());
+
+            console.log(playerObj.api_screenToSphere(0,0));
+            console.log(playerObj.api_screenToSphere(1,0));
+            console.log(playerObj.api_screenToSphere(2,0));
+      //没有code就是小行星模式
+            if(!codesign){
+              playerObj.api_littlePlanet();
+            }else{
+
+            }
+
+            //视角切换
+            $(".h5-pattern-button").toggle(function(){
+              var that = this;
+              $(that).children("img").prop("src", "./image/ball.png");
+
+              console.log("球面");
+              playerObj.api_SpherePlanet();
+              display_pattern = 2;
+            },function(){
+              var that = this;
+              $(that).children("img").prop("src", "./image/panorama.png");
+
+              console.log("平面");
+              playerObj.api_normalView();
+              display_pattern = 3;
+            },function(){
+              var that = this;
+              $(that).children("img").prop("src", "./image/xing.png");
+
+              console.log("小行星");
+              playerObj.api_littlePlanet();
+              display_pattern = 1;
+            });
+
+            //单双屏开关
+            $("#switch_vr").switchbutton({
+            classes: 'ui-switchbutton-ios5',
+            labels: false
+          }).change(function(){
+            var that    = this;
+            var checked = $(that).prop("checked") ? true : false;
+
+            if(checked){
+              //进入VR模式
+              playerObj.api_enterVRModel();
+            }else{
+              //退出VR模式
+              playerObj.api_exitVRModel();
+              //切换显示模式
+              switch(display_pattern){
+                case 1:
+                  playerObj.api_littlePlanet();
+                  break;
+                case 2:
+                  playerObj.api_SpherePlanet();
+                  break;
+                case 3:
+                  playerObj.api_normalView();
+                  break;
+                default:
+                  playerObj.api_littlePlanet();
+                  break;
+              }
+            }
+          });
+
+            //陀螺仪开关
+            $("#switch_gyro").switchbutton({
+            classes: 'ui-switchbutton-ios5',
+            labels: false
+          }).change(function(){
+
+              playerObj.api_ToggleGyro();
+          });
+
+            //截屏
+            $(".praise-screenshot-button").on("click", function(){
+              //var imagedata = playerObj.api_screenShot();
+              // 这将会提示用户保存PNG图片
+              //Canvas2Image.saveAsPNG(imagedata);
+              $(".detailinfo").show();
+              $(".control-area").hide();
+              //$("#testimg").prop("src",imagedata);
+              //var triggerDownload = $("#tttt").attr("href", imagedata).attr("download", "123.png");
+                //triggerDownload[0].click();
+            });
+            //setTimeout(playerObj.api_SpherePlanet(),20000);
+
+      //$("#scenePlayDom").on("click", function(){
+      //  clicking();
+      //});
+
+      var myElement = document.getElementById("scenePlayDom");
+      var mc = new Hammer.Manager(myElement);
+
+      //Tap recognizer with minimal 2 taps
+      mc.add( new Hammer.Tap({ event: 'doubletap', taps: 2 }) );
+      //Single tap recognizer
+      mc.add( new Hammer.Tap({ event: 'singletap' }) );
+
+      //we want to recognize this simulatenous, so a quadrupletap will be detected even while a tap has been recognized.
+      mc.get('doubletap').recognizeWith('singletap');
+      //we only want to trigger a tap, when we don't have detected a doubletap
+      mc.get('singletap').requireFailure('doubletap');
+
+      mc.on("doubletap", function(ev) {
+        ev.preventDefault();
+        console.log("双击");
+        playerObj.api_normalView(1, function(){return false;});
+      });
+
+      mc.on("singletap", function(ev){
+        if(!comment_sign){
+          if ( displaystate ) {
+                    $(".praise-area").animate({
+                      bottom: -50
+                    }, 1000 );
+                    $(".top-area").animate({
+                      top: -50
+                    }, 1000 );
+                  } else {
+                    $(".praise-area").animate({
+                      bottom: 0
+                    }, 1000 );
+                  $(".top-area").animate({
+                      top: 0
+                    }, 1000 );
+                  }
+
+                displaystate = !displaystate;
+        }
+      });
+
+            //添加的内容可以拖拽
+          $( "#draggable" ).draggable({
+              scroll: false,
+              stop: function() {
+                var that = this;
+
+                    var offset = $("#draggable").offset();
+                    var o = playerObj.api_screenToSphere(offset.left+23,offset.top+70);
+                    cpan  = o.pan;
+                  ctilt = o.tilt;
+                  cfov  = o.fov;
+                  $(that).prop({
+                      "pan": cpan,
+                      "tilt": ctilt,
+                      "fov": cfov
+                    });
+                }
+            }).css("top", $(document).height()/2-20).css("left", $(document).width()/2-75).css("position","absolute").css("width","200px");
+
+          $(".praise-comment-button", $(".praise-area")).on("click",function(){
+            var browser = judgebrowser();
+            if(!browser) return;
+
+            $(".comment-edit-area").show();
+            $(".edit").show();
+            $(".comment-area-tip").show();
+            $(".praise-area").hide();
+            comment_sign = true;
+            var o = playerObj.api_screenToSphere($(document).width()/2-31, $(document).height()/2+80);
+//            cpan  = o.pan;
+//            ctilt = o.tilt;
+//            cfov  = o.fov;
+            $("#draggable").css("top", $(document).height()/2-20).css("left", $(document).width()/2-75).prop({
+                "pan": o.pan,
+                "tilt": o.tilt,
+                "fov": o.fov
+              });
+          });
+
+          if(codesign && getCookie(filename+"praise") != "true"){
+            $(".praise-comment-button").trigger("click");
+          }
+          //android下输入文字时键盘的显示和隐藏会导致页面大小会改变
+          var dwidth  = $(document).width();
+      var dheight = $(document).height();
+          $(window).resize(function(){
+          //alert($(window).height());
+          setTimeout($("div[name=SceneViewer]").css("height",$(window).height()), 100);
+          $(".qrcode-area").offset({
+            top:parseInt($(document).height()/2-140),
+            left:parseInt($(document).width()/2-100)
+          });
+          if(comment_sign){
+            var o = playerObj.api_screenToSphere($(document).width()/2-51, $(document).height()/2+150);
+            cpan  = o.pan;
+                ctilt = o.tilt;
+                cfov  = o.fov;
+              $("#draggable").css("top", $(document).height()/2-20).css("left", $(document).width()/2-75).prop({
+                  "pan": o.pan,
+                  "tilt": o.tilt,
+                  "fov": o.fov
+                });
+          }
+        });
+        },
+        loadedCallBack:function(){
+//             alert(cpan);
+//             alert(ctilt);
+      //没有获取code，显示动画效果
+          if(!codesign){
+            setTimeout(function(){
+              console.log("展开成平面模式:");
+              $(".h5-pattern-button").children("img").prop("src", "./image/panorama.png");
+              //展开成平面模式
+              playerObj.api_normalView(2, function(){
+                //设置初始的pantilefov
+                display_pattern = 3;
+                  playerObj.api_setPanTiltFov(cpan*1, ctilt*1, cfov*1);
+                  $(".hand-area").show().fadeOut(3000);
+                  //获取评论
+                  // getCommentList(filename, commentoffset, commentlimit);
+                  initsign = false;
+              });
+
+            },1000);
+          }else{
+              //获取code之后，则不显示动画效果
+              $(".h5-pattern-button").children("img").prop("src", "./image/panorama.png");
+            //展开成平面模式
+            playerObj.api_normalView(0, function(){
+              //设置初始的pantilefov
+              display_pattern = 3;
+                playerObj.api_setPanTiltFov(cpan*1, ctilt*1, cfov*1);
+                //获取评论
+                // getCommentList(filename, commentoffset, commentlimit);
+                initsign = false;
+            });
+            }
+        },
+        sceneEventDownCallBack:function(e){
+            console.log("鼠标down");
+            console.log(e);
+            startx = e.clientX, starty = e.clientY;
+        },
+        sceneEventUpCallBack:function(e){
+            console.log("鼠标up");
+            console.log(e);
+            endx = e.clientX, endy = e.clientY;
+        },
+        sceneEventClickCallBack:function(e){
+
+          console.log("鼠标点击获取当前位置");
+
+          if(Math.abs(startx-endx) > 0 || Math.abs(starty-endy) > 0){
+                console.log("已经移动");
+                return;
+            }
+
+
+          var o     = playerObj.api_screenToSphere(e.clientX,e.clientY);
+          //改变评论区域的位置
+          if(comment_sign){
+
+//            var x =  e.x || e.screenX;
+//            var y =  e.y || e.screenY;
+            var x = e.clientX;
+            var y =  e.clientY;
+
+            cpan  = o.pan;
+            ctilt = o.tilt;
+            cfov  = o.fov;
+
+            $("#draggable").offset({
+              top:y-70,
+              left:x-23,
+            }).prop({
+                pan: o.pan,
+                tilt: o.tilt,
+                fov: o.fov
+                });
+
+            //iphone手机评论框失去焦点bug
+            if(isIPHONE){
+              document.getElementById('comment-edit-area-input').blur();
+              }
+
+          }else{
+
+            }
+
+          console.log(o);
+        },
+        sceneResizeCallBack:function(e){
+          console.log("视口大小改变");
+        },
+        scenePanTiltFovChangerCallBack:function(e){
+            if(!initsign){
+              var pantilfov = playerObj.api_screenToSphere($(document).width()/2-35, $(document).height()/2);
+              cpan  = pantilfov.pan;
+              ctilt = pantilfov.tilt;
+              cfov  = pantilfov.fov;
+            }
+        },
+        drawWebGLCallBack:function(){
+          //console.log("场景角度改变");
+          var pantilfov = playerObj.api_screenToSphere();
+
+          $(".comment-area").each(function(){
+            var that = this;
+            //图片的pan值
+              var pan  = $(that).attr("pan");
+              //图片的tile值
+              var tile = $(that).attr("tilt");
+
+              var xy = playerObj.api_sphereToScreen(pan*1, tile*1);
+              $(that).css("left", xy.x-20).css("top", xy.y-45);
+              //console.log(xy);
+          });
+
+        },
+        errorCallBack: function (e) {
+            console.log("错误信息：" + e);
+        }
+    };
+    //多码率视频切换
+    var TBConfig = {
+        videoQuality: 1,
+        videoList: [{
+            "Text": "普清",
+            "Quality": 1,
+            "Resolution": null,
+            "Path": "./image/1024_512.jpg",
+            "RTMP": null
+        }
+        , {
+            "Text": "高清",
+            "Quality": 2,
+            "Path": "./image/1920_960.jpg",
+        }
+        ]
+    };
+    /*todo：注意多码率视频的默认的索引路径，得保持与sceneFilePath 的路径一致*/
+    /*初始化开始*/
+    window.onload = function () {
+      //var url=getQueryString('filename')+".png"; //实例化
+      // var url=filename+".png?thumb=1&w=3456&h=1728"; //实例化
+        // url = 'http://awsbj0.fds.api.xiaomi.com/madv360/'+url;
+        var url = 'img.jpg';
+      params.scenesArr[0].sceneFilePath=url;
+       // alert(params.scenesArr[0].sceneFilePath)
+//      if(Request.videourl2==undefined){
+//        Request.videourl2=Request.videourl;
+//      }
+      TBConfig.videoList[0].Path=url;
+//      TBConfig.videoList[1].Path="http://madv360.cn/madv360/"+Request.videourl2;
+        initLoad(params,null,TBConfig);
+    };
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+
+    var str=location.href; //取得整个地址栏
+    var num=str.indexOf("?");
+    str=str.substr(num+1);
+
+
+    var ua = navigator.userAgent.toLowerCase();
+    //设置在微信浏览器或者safari中打开
+    //设置华为浏览器出提示
+    if(ua.match(/mqqbrowser/i) == "honor" || ua.match(/huawei/i) == "huawei"){
+      if(ua.match(/MicroMessenger/i) != "micromessenger"){
+        alert("请在微信内置浏览器内打开");
+      }
+    }
+    else if (ua.match(/safari/i) == "safari" || ua.match(/MicroMessenger/i) == "micromessenger") {
+
+    }else{
+        alert("请在微信内或者在safari浏览器内打开");
+    }
+
+    function getCookie(name)
+    {
+      var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+      if(arr=document.cookie.match(reg))
+      return unescape(arr[2]);
+      else
+      return null;
+    }
+
+    function delCookie(name)
+    {
+      var exp = new Date();
+      exp.setTime(exp.getTime() - 1);
+      var cval=getCookie(name);
+      if(cval!=null)
+      document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+    }
+    //使用示例
+    //setCookie("name","hayden", "s3600");
+
+    //alert(getCookie("name"));
+    //alert(document.cookie);
+    //如果需要设定自定义过期时间
+    //那么把上面的setCookie　函数换成下面两个函数就ok;
+    //程序代码
+    function setCookie(name,value,time)
+    {
+      var strsec = getsec(time);
+      var exp = new Date();
+      exp.setTime(exp.getTime() + strsec*1);
+      document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    }
+
+    function getsec(str)
+    {
+      //alert(str);
+      var str1=str.substring(1,str.length)*1;
+      var str2=str.substring(0,1);
+      if (str2=="s")
+      {
+        return str1*1000;
+      }
+      else if (str2=="h")
+      {
+        return str1*60*60*1000;
+      }
+      else if (str2=="d")
+      {
+        return str1*24*60*60*1000;
+      }
+    }
+    //这是有设定过期时间的使用示例：
+    //s20是代表20秒
+    //h是指小时，如12小时则是：h12
+    //d是天数，30天则：d30
+    //setCookie("name","hayden","s20");
+</script>
+  <script language="javascript" type="text/javascript">
+
+$(document).ready(function(){
+
+  var dwidth  = $(document).width();
+  var dheight = $(document).height();
+  var width = parseInt(dwidth/2-40);
+  var height = parseInt(dheight/2-55);
+
+  $(".hand-area").offset({
+    top:height,
+    left:width
+  });
+
+  $(".qrcode-area").offset({
+    top:parseInt(dheight/2-140),
+    left:parseInt(dwidth/2-100)
+  });
+
+  $(".qrcode-close-area").on("click", function(){
+    $(".qrcode-area").hide();
+  });
+
+  $(".comment-edit-area-input").css("width", dwidth-40);
+  if(codesign){
+    $(".comment-edit-area-input").prop("placeholder", "随便说点儿吧！（广告及恶意留言将被删除）");
+  }
+
+  var state = true;
+    $( "#buy-area-control-button" ).on( "click", function() {
+      if ( state ) {
+      $( "#buy-area-control-button" ).text("")
+      .removeClass("open-buy-area").addClass("close-buy-area");
+        $(".praise-area").animate({
+          height: 90
+        }, 1000 );
+      } else {
+        $( "#buy-area-control-button" ).text("").removeClass("close-buy-area").addClass("open-buy-area");
+        $(".praise-area").animate({
+          height: 30
+        }, 1000 );
+      }
+      state = !state;
+    });
+
+    //$(".comment-area").hide();
+    $(".detail-close-button").on("click", function(){
+          $(".detailinfo").hide();
+        });
+//     alert(getCookie("praise_sign"));
+//  alert(getCookie("praise_sign") == "true");
+    //判断是否已经点过赞
+    if(getCookie(filename) == "true"){
+      praise_sign = true;
+      praise_page_sign = true;
+      $(".praise-button", $(".praise-area")).addClass("praise-button-select");
+    }
+    // $(".praise-button", $(".praise-area")).on("click", function(){
+    //   var browser = judgebrowser();
+    //   if(!browser) return;
+
+    //   var that = this;
+    //   if(codesign){
+    //   //点赞
+    //         if(!praise_page_sign){
+    //         var favornum = parseInt($(that).text());
+    //         $(that).text(favornum+1);
+    //           $(that).addClass("praise-button-select");
+
+    //         $.ajax({
+    //                   data:'cmd=praisefile&filename='+filename+'&openid='+openid+'&action=1',
+    //                   type : "get",
+    //                   async : false,
+    //                   url: apiurl,
+    //                   dataType : "json",
+    //                   //jsonp : "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+    //                   //jsonpCallback : "handler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+    //                   success : function(json) {
+    //                       //alert("success");
+    //                       if(json.rval == 0){
+    //                         praise_page_sign = true;
+    //                         if(getCookie("praise_sign") != undefined){
+    //                           delCookie("praise_sign");
+    //                           }
+    //                         setCookie(filename,"true", "s3600");
+    //                       }
+    //                   },
+    //                   error : function() {
+    //                     //alert("fail");
+    //                   }
+    //         });
+    //      //取消赞
+    //        }else{
+    //         var favornum = parseInt($(that).text());
+    //         $(that).text(favornum-1);
+    //         $(that).removeClass("praise-button-select");
+
+    //           $.ajax({
+    //               data:'cmd=praisefile&filename='+filename+'&openid='+openid+'&action=0',
+    //               type : "get",
+    //               async : false,
+    //               url: apiurl,
+    //               dataType : "json",
+    //               //jsonp : "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+    //               //jsonpCallback : "handler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+    //               success : function(json) {
+    //                           //alert("success");
+    //                           if(json.rval == 0){
+    //                             praise_page_sign = false;
+    //                             if(getCookie("praise_sign") != undefined){
+    //                               delCookie("praise_sign");
+    //                               }
+    //                             setCookie(filename,"false", "s3600");
+    //                           }
+    //               },
+    //               error : function() {
+    //                      //alert("fail");
+    //               }
+    //           });
+    //         }
+
+    //   }else{
+    //     var redirecturl = '';
+    //       redirecturl +="filename="+getQueryString('filename');
+
+    //     if(str.match(/cpan/ig) == undefined){
+
+    //       redirecturl +="&cpan="+cpan.toFixed(2);
+    //       redirecturl +="&ctilt="+ctilt.toFixed(2);
+    //       redirecturl +="&cfov="+cfov.toFixed(2);
+    //     }
+
+    //     setCookie(filename+"praise", "true", "s3600");
+    //       //如果用户没有授权，则跳转到授权页面
+    //     window.location.href=codeurl+"?"+redirecturl;
+
+    //         //alert("未授权不能点赞");
+    //     }
+    //  });
+
+//     $(".praise-button", $(".praise-area")).toggle(function(){
+//      var browser = judgebrowser();
+//      if(!browser) return;
+
+//      //如果已经点赞，则直接返回
+//      //if(praise_sign) return;
+
+//    var that = this;
+//    //如果已经授权过，则发送数据都服务器保存点赞数
+//        if(codesign){
+
+//          var favornum = parseInt($(that).text());
+//        $(that).text(favornum+1);
+//          $(that).addClass("praise-button-select");
+
+//          $.ajax({
+//                  data:'cmd=praisefile&filename='+filename+'&openid=123&action=1',
+//                  type : "get",
+//                  async : false,
+//                  url: "http://tapi.madv360.com:9999",
+//                  dataType : "json",
+//                  //jsonp : "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//                  //jsonpCallback : "handler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+//                  success : function(json) {
+//                      //alert("success");
+//                      if(json.rval == 0){
+//                        praise_sign = true;
+//                        if(getCookie("praise_sign") != undefined){
+//                          delCookie("praise_sign");
+//                          }
+//                        setCookie("praise_sign","true", "s3600");
+//                      }
+//                  },
+//                  error : function() {
+//                    //alert("fail");
+//                  }
+//          });
+//          }else{
+//              alert("未授权不能评论");
+//          }
+//     }, function(){
+//      var browser = judgebrowser();
+//      if(!browser) return;
+
+//      //如果已经取消点赞，则直接返回
+//      //if(!praise_sign) return;
+
+//    var that = this;
+
+//      //如果已经授权过，则发送数据都服务器保存点赞数
+//        if(codesign){
+//          var favornum = parseInt($(that).text());
+//        $(that).text(favornum-1);
+//          $(that).removeClass("praise-button-select");
+
+//          $.ajax({
+//                  data:'cmd=praisefile&filename='+filename+'&openid=123&action=0',
+//                  type : "get",
+//                  async : false,
+//                  url: "http://tapi.madv360.com:9999",
+//                  dataType : "json",
+//                  //jsonp : "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//                  //jsonpCallback : "handler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+//                  success : function(json) {
+//                    //alert("success");
+//                    if(json.rval == 0){
+//                        praise_sign = false;
+//                        if(getCookie("praise_sign") != undefined){
+//                          delCookie("praise_sign");
+//                          }
+//                        setCookie("praise_sign","false", "s3600");
+//                      }
+//                  },
+//                  error : function() {
+//                    //alert("fail");
+//                  }
+//          });
+//          }else{
+//           alert("未授权不能评论");
+//          }
+//     });
+
+
+    $(".control-area-show-button").on("click", function(){
+      $(".control-area").fadeIn(1000);
+    });
+    $(".control-area-close-button").on("click", function(){
+      $(".control-area").fadeOut(1000);
+    });
+
+    document.getElementById('comment-edit-area-input').addEventListener('input', function(e){
+
+      var browser = judgebrowser();
+      if(!browser) return;
+      var redirecturl = '';
+      redirecturl +="filename="+getQueryString('filename');
+
+    if(str.match(/cpan/ig) == undefined){
+
+      redirecturl +="&cpan="+cpan.toFixed(2);
+      redirecturl +="&ctilt="+ctilt.toFixed(2);
+      redirecturl +="&cfov="+cfov.toFixed(2);
+    }
+
+      //如果用户没有授权，则跳转到授权页面
+    if(!codesign){
+      setCookie(filename+"praise", "false", "s3600");
+      window.location.href=codeurl+"?"+redirecturl;
+    }
+
+    var that = this;
+
+    $(".test-comment-area").children(".edit-text").text($(that).val());
+    //setTimeout($("div[name=SceneViewer]").css("height",$(window).height()), 1000);
+    });
+
+  //隐藏评论
+  $(".comment-hide-button").toggle(function(){
+    var that = this;
+    comment_display_sign = false;
+    $(that).text("显示");
+    $(".comment-area").hide();
+  }, function(){
+    var that = this;
+    comment_display_sign = true;
+    $(that).text("隐藏");
+    $(".comment-area").show();
+  });
+  //刷新评论
+  $(".comment-refresh-button", $(".comment-edit-area")).on("click", function(){
+    if(comment_display_sign){
+      refreshComment();
+    }else{
+      return;
+    }
+  });
+  //删除评论
+  $(".comment-edit-area-delete", $(".comment-edit-area")).on("click", function(){
+    $(".comment-edit-area-input").val("");
+    $(".test-comment-area").children(".edit-text").text("随便说点儿吧！（广告及恶意留言将被删除）");
+  });
+  //取消评论
+  $(".comment-cancel-button").on("click", function(){
+    $(".comment-edit-area-input").val("");
+    $(".test-comment-area").hide().children(".edit-text").text("随便说点儿吧！（广告及恶意留言将被删除）");
+    $(".comment-area-tip").hide();
+
+    $(".comment-edit-area").hide();
+      $(".praise-area").show();
+      //alert($("body").css("height"));
+      //alert($(window).height());
+      //setTimeout('alert($("body").css("height"));$("div[name=SceneViewer]").css("height",$(window).height());alert($("body").css("height"));alert($("div[name=SceneViewer]").css("height"))', 2000);
+      comment_sign = false;
+  });
+  //发表评论
+  $(".comment-submit-button").on("click", function(){
+
+    if($(".comment-edit-area-input").val() == ""){
+      alert("评论内容不能为空");
+      return;
+    }else if($(".comment-edit-area-input").val().length > 30 ){
+      alert("评论内容长度超过30");
+      return;
+    }else{
+        submitComment();
+        $(".comment-edit-area-input").val("");
+        $(".test-comment-area").hide().children(".edit-text").text("随便说点儿吧！（广告及恶意留言将被删除）");
+        $(".comment-area-tip").hide();
+
+        $(".comment-edit-area").hide();
+          $(".praise-area").show();
+          comment_sign = true;
+          $(".qrcode-area").show();
+          //setTimeout($("body").css("height",$(window).height()), 1000);
+    }
+  });
+
+  //发布取消按钮样式
+  $(".comment-button").on("mouseover",function(){
+    $(this).addClass("comment-button-hover").css("color","#fff").css("border-color", "#46a4ea");
+  }).on("mouseout",function(){
+    $(this).removeClass("comment-button-hover").css("color","#888").css("border-color", "#ccc");
+  });
+
+  $(".buy-area-button").bind("click",function(){
+        window.location.href="http://www.mi.com/mj-panorama-camera/?cfrom=search";
+    });
+
+  //刷新评论
+  function refreshComment(){
+    // getCommentList(filename, commentoffset, commentlimit);
+  }
+
+  //取消评论
+  function cancelComment(){
+    $(".comment-edit-area-input").val("");
+    $(".test-comment-area").children(".edit-text").text("随便说点儿吧！（广告及恶意留言将被删除）");
+  }
+
+  //提交评论
+  function submitComment(){
+    var url = apiurl+"?cmd=addwxcomment";
+//    alert(filename);
+//    alert(openid);
+//    alert(nickname);
+    var data = "cmd=addwxcomment";
+
+    data += "&filename="+filename;
+    data += "&openid="+openid;
+    data += "&nickname="+nickname;
+    data += "&sex="+sex;
+    data += "&province="+province;
+    data += "&city="+city;
+    data += "&country="+country;
+    data += "&headimgurl="+headimgurl;
+    data += "&privilege="+privilege;
+    data += "&unionid="+unionid;
+    data += "&pan="+cpan;
+    data += "&tilt="+ctilt;
+    data += "&fov="+cfov;
+    data += "&content="+$(".comment-edit-area-input",$(".comment-edit-area")).val();
+
+    //保存评论
+      $.ajax({
+              data:data,
+              type : "post",
+              async : false,
+              url: url,
+              dataType : "json",
+              success : function(json) {
+                if(json.rval == 0){
+//                  alert(json.result.content);
+//                  alert(json.result.openid);
+                  addComment(json.result);
+                }
+              },
+              error : function(e) {
+                //alert("fail");
+              }
+      });
+  }
+});
+
+</script>
+<script>
+  /*
+   * 注意：
+   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+   * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+   * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+   *
+   * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+   * 邮箱地址：weixin-open@qq.com
+   * 邮件主题：【微信JS-SDK反馈】具体问题
+   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+   */
+  wx.config({
+    debug: false,
+    appId: 'wx02e37a456771e778',
+    timestamp: 1515551703,
+      nonceStr: 'hgA17l7IKQv6WX0r',
+      signature: 'fadbc5e591b6d14bf1a9fae284ac3f0ac3695cfe',
+      jsApiList: [
+          // 所有要调用的 API 都要加到这个列表中
+          'checkJsApi',
+          'onMenuShareTimeline',//
+          'onMenuShareAppMessage',
+          'onMenuShareQQ',
+          'onMenuShareWeibo'
+      ]
+    });
+  window.share_config = {
+      "share": {
+          "imgUrl": "http://wx.madv360.com/image/logo.png",//分享图，默认当相对路径处理，所以使用绝对路径的的话，“http://”协议前缀必须在。
+          "desc" : "米家全景相机",//摘要,如果分享到朋友圈的话，不显示摘要。
+          "title" : '米家全景相机',//分享卡片标题
+          "link": "http://wx.madv360.com/index_comment.php?filename="+filename+"&iscode="+iscode,//分享出去后的链接，这里可以将链接设置为另一个页面。
+          "success":function(){//分享成功后的回调函数
+            //增加分享数
+              $.ajax({
+                      data:'cmd=h5_share&filename='+filename+'&ip=&other_info=',
+                      type : "get",
+                      async : false,
+                      url: apiurl,
+                      dataType : "",
+                      success : function(o) {
+
+                      },
+                      error : function() {
+                      }
+              });
+          },
+          'cancel': function () {
+            // 用户取消分享后执行的回调函数
+        }
+     }
+    };
+    wx.ready(function () {
+      // 在这里调用 API
+      wx.onMenuShareAppMessage(share_config.share);//分享给好友
+      wx.onMenuShareTimeline(share_config.share);//分享到朋友圈
+      wx.onMenuShareQQ(share_config.share);//分享给手机QQ
+    });
+
+// var miurl  = "http://awsbj0.fds.api.xiaomi.com/madv360/";
+
+//     //获取人气数值
+//     $.ajax({
+//             data:'cmd=getview&filename='+filename,
+//             type : "get",
+//             async : false,
+//             url: apiurl,
+//             dataType : "jsonp",
+//             jsonp : "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+//             jsonpCallback : "handler", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+//             success : function(json) {
+//               //设置页面内容信息
+//               if(json.title != undefined){
+//                 $("#title").text(decodeURI(json.title));
+//                 window.share_config.share.title=decodeURI(json.title);
+//                 $(".detail-title").text(decodeURI(json.title));
+//                 $(".detail-time").text(decodeURI(json.time));
+//                 $(".detail-content").text(decodeURI(json.content));
+//                 $(".praise-button").text(json.favor);
+//                 $("#author").text(decodeURI(json.author_name));
+//               }
+
+//               //设置分享图片
+//               var imgUrl = filename;
+//               if(imgUrl != ""){
+//                 window.share_config.share.imgUrl = miurl+imgUrl+"_slt.png";
+//                 }
+
+//                 var view_count = json.view_count;
+//                 if(view_count>=10000){
+//                     view_count=view_count/10000;
+//           $(".hot-num").text(view_count.toFixed(2)+"万");
+//                 }else{
+//                     $(".hot-num").text(view_count);
+//                 }
+//             },
+//             error : function() {
+//                 $(".hot-num").text("0");
+//             }
+//     });
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

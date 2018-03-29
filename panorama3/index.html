@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="dns-prefetch" href="//h5.sinaimg.cn">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>全景图片</title>
+    <style>
+        html, body, #app {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .m-topbar-max {
+            right: 0;
+        }
+        .hid{
+            display: none;
+        }
+        .wrap{
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .wrap img{
+            max-width: 100%;
+        }
+        .wrap canvas{
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 1;
+        }
+        .wrap.loading::after{
+            content: 'loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #777;
+            transform: translate(-50%,-50%);
+            font-size: 0.75rem;
+        }
+        .log{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 999;
+            background: #000;
+            color: #fff;
+        }
+        .errors{
+            padding: 4rem 0.625rem;
+        }
+
+
+
+
+        .empty_failed {
+            height: 100%;
+        }
+        svg {
+            display: block;
+            width: 5rem;
+            height:5rem;
+            margin: 5rem auto 1rem;
+        }
+
+        p {
+            text-align: center;
+            color: #919191;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--<div class="m-top-bar m-panel m-topbar-max">
+        <div class="nav-box">
+            <div class="nav-main">
+                <h3 class="m-text-cut">全景图片</h3>
+            </div>
+            <div class="nav-left" id="back">
+                <div class="nav-ctrl"> <i class="m-font m-font-arrow-left"></i>
+                    返回
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-ctrl"> <i class="m-font m-font-dot-more"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="wrap loading" id="fullwrap">
+        <div class="errors hid" id="errors">
+            <div class="empty_failed">
+                <svg enable-background="new 0 0 200 200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="m86.9 49c4.1 0 7.5 1.1 9.9 3.5 4.1 4 4.5 11 1.9 19.3-.6 2 .2 2.5 1.3 2.5 1.2 0 2.7-.6 2.7-.6 0 0 0 0 0 0 8.6-3.5 16.6-5.4 23.2-5.4 6.5 0 11.5 1.8 14.2 5.6 2.9 4.1 2.6 9.8 0 16.5-1.2 3.1.4 3.5 2.7 4.2 9.6 2.9 20.3 10.1 20.3 22.6 0 20.7-30.3 46.9-75.8 46.9-34.8-.1-70.3-16.7-70.3-44.1 0-14.3 9.2-30.8 25-46.4 15.6-15.4 33.1-24.6 44.9-24.6m0-2c-12.7 0-30.9 9.9-46.4 25.2-16.4 16.3-25.5 33.3-25.5 47.8 0 28.8 36.7 46 72.2 46 21.2 0 41.1-5.7 56.1-16 13.6-9.3 21.7-21.6 21.7-32.9 0-16.6-16.6-22.9-21.7-24.5-.6-.2-1.4-.4-1.7-.6 0-.1.1-.4.3-1 3.1-7.7 3-13.9-.2-18.4-3-4.2-8.5-6.5-15.8-6.5-6.8 0-15.1 1.9-23.9 5.5h-.1c-.5.2-.9.3-1.2.4 2.9-9.4 2.1-16.7-2.4-21.2-2.8-2.5-6.6-3.8-11.4-3.8z"
+                        fill="#d2d2d2"/>
+                    <path
+                        d="m131.7 46.2c9.6-.8 19 1.8 25.9 8.9 6.3 6.5 8.9 15.3 8.4 24.2.7.2 1.3.3 2 .5.6-9.6-2.2-19.1-9-26.1-7.4-7.6-17.7-10.4-27.9-9.4.2.6.4 1.2.6 1.9z"
+                        fill="#fbb285"/>
+                    <path
+                        d="m131 16.3c17.4-1.3 34.9 4.1 47.7 17.2 12 12.4 17.1 28.8 16.2 45.3.7.2 1.3.4 2 .7 1-17.2-4.2-34.5-16.8-47.4-13.3-13.7-31.6-19.3-49.8-17.8.2.7.4 1.3.7 2z"
+                        fill="#fbb285"/>
+                </svg>
+                <p>暂无数据</p>
+            </div>
+        </div>
+    </div>
+    <div class="log hid">
+        <div id="suport_log"></div>
+        <div id="stage"></div>
+    </div>
+</div>
+<script>
+    var config = {
+        online: [1][0],
+        st: 'e4746e',
+        login: [][0],
+        uid: '',
+        pageConfig: [null][0] || {},
+        wm: '',
+        version: '',
+        url: location.href.split('#')[0]
+    };
+    var $render_data = [{
+    "ok": 1,
+    "msg": "全景图片信息获取成功",
+    "data": {
+        "ld_url": "006WfoFPly1fmxhawwumej335s1kwe81.jpg",
+        "hd_url": "006WfoFPly1fmxhawqfwmj335s1kwe81.jpg",
+        "_url": "006WfoFPly1fmxhawqfwmj335s1kwe81.jpg",
+        "Access-Control-Allow-Origin": "*",
+        "allowOrigin": 1,
+        "img_url": "006WfoFPly1fmxhawqfwmj335s1kwe81.jpg"
+    },
+    "cache": 0
+}][0] || {};
+</script>
+<script type="text/javascript" src="main.ac7a4be4.js"></script>
+</body>
+<script>
+    var fullwrap = document.getElementById('fullwrap');
+    var picArr = [];
+    if ($render_data && $render_data.data && $render_data.data.img_url) {
+        var img = new Image();
+        // img.src = $render_data.data.img_url;
+        var img_url = $render_data.data.img_url;
+        img.className = 'hid';
+        img.crossOrigin = '';
+        img.src = img_url;
+        fullwrap.appendChild(img);
+        if (img.complete) {
+            imgLoaded(img_url);
+            fullwrap.removeChild(img);
+        }
+        else {
+            img.addEventListener('load', function () {
+                imgLoaded(img_url);
+                fullwrap.removeChild(img);
+            });
+        }
+        img.addEventListener('error', function() {
+            // 展示错误信息
+            var errors = document.getElementById('errors');
+            if (errors) {
+                errors.className = 'errors';
+
+            }
+            if(fullwrap){
+                fullwrap.className = 'wrap';
+                fullwrap.removeChild(img);
+            }
+        });
+    }
+
+    function imgLoaded(url) {
+        picArr.push(url);
+        if (fullwrap) {
+            var t = new Panorama({
+                el: fullwrap,
+                picArray: picArr,
+                canvasW: fullwrap.offsetWidth,
+                canvasH: fullwrap.offsetHeight,
+                autoRander: false,
+                closeDeviceOri: false,
+            });
+            // pc如果需要兼容屏幕改变事件示例:
+            window.addEventListener('resize', function () {
+                if (t) {
+                    t.onResize(fullwrap.offsetWidth, fullwrap.offsetHeight);
+                }
+            }, false);
+            fullwrap.classList = 'wrap';
+        }
+    }
+
+    /* document.getElementById('back').onclick = function () {
+        window.history.back();
+    }*/
+</script>
+</html>

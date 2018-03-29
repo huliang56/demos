@@ -1,0 +1,320 @@
+#beginLayer {
+    position: absolute;
+    left: 50%;
+    top:50%;
+
+}
+#beginLayerImg {
+    position: absolute;
+    width: 175px;
+    height: 186px;
+    left: -87.5px;
+    top: -93px;
+    background-image: url(begin-web.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+.videoScrollTop {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    float: left;
+    top: -3px;
+    cursor: pointer;
+}
+
+#videoBG {
+
+    width: 100%;
+    height: 100%;
+}
+
+#videoToolbar {
+
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    background-color: rgba(31, 31, 31, 0.8);
+}
+
+#videoTogglePlay {
+    background-image: url(toolbar15.png);
+    /*//background-size: 91px 140.5px;*/
+    cursor: pointer;
+    /*height: 100%;*/
+    background-size: 400px 400px;
+
+}
+.videoPlay {
+    height: 15px;
+    width: 15px;
+    display: block;
+    margin-left:15px;
+    margin-right:15px;
+    margin-top: 11.5px;
+    background-position: -128px -8.5px;
+}
+
+.videoStop {
+    height: 15px;
+    width: 15px;
+    display: block;
+    margin-left:15px;
+    margin-right:15px;
+    margin-top: 11.5px;
+    background-position:-15.5px -8px
+}
+
+.videoScroll {
+    position: relative;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+
+}
+
+#videoScrollBG {
+    position: absolute;
+
+    background: #5B5A5A;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#videoScrollBG1 {
+    position: absolute;
+    background: #848484;
+    width: 0%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#videoScrollBG2 {
+    position: absolute;
+    background: #1CAFFC;
+    width: 0%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#videoTime {
+    height: 41px;
+    line-height: 41px;
+    vertical-align: middle;
+    text-align: center;
+    width: 70px;
+    float: left;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+#videoViewPortToggle{
+    background-image: url(toolbar15.png);
+  /*  background-size: 91px 140.5px;*/
+
+    background-size: 400px 400px;
+}
+
+
+
+.videoViewPort2 {
+    height: 30px;
+    width: 32px;
+    display: block;
+    margin-right: 20px;
+    margin-top: 5px;
+    background-position:-8px -108.5px;
+}
+
+
+#videoFullScreen{
+    background-image: url(toolbar15.png);
+    /*background-size: 91px 140.5px;*/
+    /*背景缩小一倍*/
+    background-size: 400px 400px;
+}
+
+.videoFullScreen1 {
+    height: 30px;
+    width: 43px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 10px;
+    background-position: -6.5px -120.5px;
+
+}
+.videoFullScreen2 {
+    height: 30px;
+    width: 43px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 10px;
+    background-position: -7.5px -232.5px;
+
+}
+
+#curVideo{
+    width:85px;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    font-size: 14px;
+    color: #FFFFFF;
+    /*font-weight: bold;*/
+}
+.curVideoText{
+    width: 85px;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    position: absolute;
+}
+.curVideoText_sel{
+    width: 85px;
+    height: 40px;
+    margin-right: 20px;
+    color:#46a4ea;
+    text-align: center;
+    position: absolute;
+}
+/*视频列表css*/
+.videoDomList{
+    position: absolute;
+    background-color: rgba(31, 31, 31, 0.8);
+    width: 85px;
+    text-align: center;
+    padding: 10px 0px;
+    display:none;
+}
+
+.videoListDom{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #d1d1d1;
+    text-align: center;
+}
+.videoListDomCheck{
+    color: #1CAFFC;
+}
+
+/*显示列表css*/
+.videoShowTypeList{
+    position: absolute;
+    background-color: rgba(31, 31, 31, 0.8);
+    width: 100px;
+    text-align: center;
+    padding: 10px 0px;
+    right: 35px;
+    display:none;
+
+}
+.videoListShowTypeDom{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #d1d1d1;
+    text-align: center;
+}
+.showText{
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.sphere{
+    position: absolute;
+    background-image: url(toolbar15.png);
+    /*background-size: 91px 140.5px;*/
+    /*背景缩小一倍*/
+    background-size: 400px 400px;
+    height: 23px;
+    width: 23px;
+    display: block;
+    margin-top: 9px;
+    margin-left: 10px;
+    background-position: -234.5px -4.5px;
+}
+.sphere_c{
+    height: 23px;
+    width: 23px;
+    display: block;
+    margin-top: 9px;
+    margin-rigth: 20px;
+    background-position: -234.5px -4.5px;
+}
+.panorama{
+    position: absolute;
+    background-image: url(toolbar15.png);
+    /*background-size: 91px 140.5px;*/
+    /*背景缩小一倍*/
+    background-size: 400px 400px;
+    height: 23px;
+    width: 25px;
+    display: block;
+    margin-top: 12px;
+    margin-left: 10px;
+    background-position: -234px -120.5px;
+}
+.panorama_c{
+    height: 23px;
+    width: 25px;
+    display: block;
+    margin-top: 14px;
+    margin-rigth: 20px;
+    background-position: -234px -120.5px;
+}
+.littlePlanet{
+    position: absolute;
+    background-image: url(toolbar15.png);
+    /*background-size: 91px 140.5px;*/
+    /*背景缩小一倍*/
+    background-size: 400px 400px;
+    height: 23px;
+    width: 25px;
+    display: block;
+    margin-top: 12px;
+    margin-left: 10px;
+    background-position: -233px -341px;
+}
+.littlePlanet_c{
+    height: 23px;
+    width: 25px;
+    display: block;
+    margin-top: 10px;
+    margin-rigth: 20px;
+    background-position: -233px -341px;
+}
+.videoListShowTypeDomCheck{
+    color: #1CAFFC;
+}
+
+
+
+.floatR {
+    float: right;
+}
+
+.floatL {
+    float: left;
+}
+
+.floatW {
+    cursor: pointer;
+    width: 48px;
+    height: 100%;
+}
