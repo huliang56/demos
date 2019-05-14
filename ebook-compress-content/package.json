@@ -4,14 +4,14 @@
   "description": "",
   "main": "book_compress.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node book_compress.js"
   },
   "author": "huliang",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-hl": "1.0.3",
     "fs-extra": "^5.0.0",
-    "lodash": "4.17.4",
-    "eslint": "4.1.1",
-    "eslint-config-hl": "1.0.3"
+    "lodash": "^4.17.4"
   }
 }
